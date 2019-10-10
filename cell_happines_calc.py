@@ -36,5 +36,5 @@ def cell_happines(world, i, j, num_same_for_happiness):
     
     if cur_happy >= num_same_for_happiness: # Hitler's inequality
         return True 
-    else:
+    else: 
         return False
