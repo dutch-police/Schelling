@@ -44,5 +44,6 @@ for iteration in range(max_num_iter):
         plt.imshow(Color_map, cmap = 'bwr', vmin = -1, vmax = 1)
         plt.pause(0.05)
     else:
+        print("счастливых клеток не осталось после", iteration)
         print("No unhappy cells!!!")
         break
