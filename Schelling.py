@@ -10,12 +10,12 @@ num_for_happy = 2
 max_num_iter = 100
 
 # Generate initial world
-Color_map_flat = np.zeros((world_size*world_size))
+Color_map_flat = np.zeros((world_size*world_size)) # можем заменить на world_size**2 как в строчке ниже. На усмотрение всех, я только делюсь тем, что понял :D
 num_elements = world_size**2
 num_blue = round(num_elements*p_blue)
 num_red = round(num_elements*p_red)
 Color_map_flat[0:num_blue] = -0.6 # blue
-Color_map_flat[num_blue: num_red+num_blue] = 0.6 #
+Color_map_flat[num_blue: num_red+num_blue] = 0.6 # отношение числа синих к общей сумме? (Игнат)
 np.random.shuffle(Color_map_flat)
 Color_map = Color_map_flat.reshape((world_size, world_size))
 
