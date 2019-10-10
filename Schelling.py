@@ -10,7 +10,7 @@ num_for_happy = 2
 max_num_iter = 100
 
 # Generate initial world
-Color_map_flat = np.zeros((world_size * world_size)) # можем заменить на world_size**2 как в строчке ниже. На усмотрение всех, я только делюсь тем, что понял :D
+Color_map_flat = np.zeros((world_size**2))
 num_elements = world_size ** 2
 num_blue = round(num_elements * p_blue)
 num_red = round(num_elements * p_red)
@@ -42,7 +42,7 @@ for iteration in range(max_num_iter):
         ax.cla()
         ax.set_title("Iteration {}".format(iteration + 1))
         plt.imshow(Color_map, cmap = 'bwr', vmin = -1, vmax = 1)
-        plt.pause(0.05)
+        plt.pause(0.5)
     else:
         print("счастливых клеток не осталось после", iteration)
         print("No unhappy cells!!!")

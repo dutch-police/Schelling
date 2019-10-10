@@ -10,7 +10,7 @@ def cell_happines(world, i, j, num_same_for_happiness):
         if cur_cell_value == world[i, j - 1]:
             cur_happy += 1
     
-    if (i + 1 < x) & ( j - 1 >= 0):
+    if (i + 1 < x) & (j - 1 >= 0):
         if cur_cell_value == world[i + 1, j - 1]:
             cur_happy += 1
     
@@ -18,15 +18,15 @@ def cell_happines(world, i, j, num_same_for_happiness):
         if cur_cell_value == world[i + 1, j]:
             cur_happy += 1
     
-    if (i + 1 < x) & ( j + 1 < y):
+    if (i + 1 < x) & (j + 1 < y):
         if cur_cell_value == world[i + 1, j + 1]:
             cur_happy += 1
     
-    if (i - 1 >= 0) & ( j - 1 >= 0):
+    if (i - 1 >= 0) & (j - 1 >= 0):
         if cur_cell_value == world[i - 1, j - 1]:
             cur_happy += 1
     
-    if (i - 1 >= 0) & ( j + 1 < y):
+    if (i - 1 >= 0) & (j + 1 < y):
         if cur_cell_value == world[i - 1, j + 1]:
             cur_happy += 1
     
