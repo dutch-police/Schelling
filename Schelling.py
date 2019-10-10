@@ -10,10 +10,10 @@ num_for_happy = 2
 max_num_iter = 100
 
 # Generate initial world
-Color_map_flat = np.zeros((world_size*world_size)) # можем заменить на world_size**2 как в строчке ниже. На усмотрение всех, я только делюсь тем, что понял :D
-num_elements = world_size**2
-num_blue = round(num_elements*p_blue)
-num_red = round(num_elements*p_red)
+Color_map_flat = np.zeros((world_size * world_size)) # можем заменить на world_size**2 как в строчке ниже. На усмотрение всех, я только делюсь тем, что понял :D
+num_elements = world_size ** 2
+num_blue = round(num_elements * p_blue)
+num_red = round(num_elements * p_red)
 Color_map_flat[0:num_blue] = -0.6 # blue
 Color_map_flat[num_blue: num_red+num_blue] = 0.6 # отношение числа синих к общей сумме? (Игнат)
 np.random.shuffle(Color_map_flat)
@@ -27,7 +27,7 @@ for iteration in range(max_num_iter):
     # Calculate happiness map    
     for i in range(world_size):
         for j in range(world_size):
-            happiness_map[i,j] = mf.cell_happines(Color_map,i,j, num_for_happy)
+            happiness_map[i,j] = mf.cell_happines(Color_map, i, j, num_for_happy)
     unhappy_x, unhappy_y  = np.where((happiness_map == 0) & (Color_map != 0))
     empty_x, empty_y = np.where(Color_map == 0)
     
@@ -35,13 +35,13 @@ for iteration in range(max_num_iter):
         unhappy_to_move_idx = np.random.randint(0, len(unhappy_x))
         empty_to_move_idx = np.random.randint(0, len(empty_x))
         Color_map[empty_x[empty_to_move_idx], empty_y[empty_to_move_idx]] =\
-        Color_map[unhappy_x[unhappy_to_move_idx ], unhappy_y[unhappy_to_move_idx]]
+            Color_map[unhappy_x[unhappy_to_move_idx ], unhappy_y[unhappy_to_move_idx]]
         Color_map[unhappy_x[unhappy_to_move_idx ], unhappy_y[unhappy_to_move_idx]] = 0
         
         # Plot
         ax.cla()
-        ax.set_title("Iteration {}".format(iteration+1))
-        plt.imshow(Color_map, cmap='bwr', vmin=-1, vmax=1)
+        ax.set_title("Iteration {}".format(iteration + 1))
+        plt.imshow(Color_map, cmap = 'bwr', vmin = -1, vmax = 1)
         plt.pause(0.05)
     else:
         print("No unhappy cells!!!")
